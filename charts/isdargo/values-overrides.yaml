@@ -142,28 +142,29 @@ gate:
   config:
     oauth2:
       enabled: true
-      spring:
-        security:
-          oauth2:
-            enabled: true
-            login-path: /oauth2/authorization/google
-            client:
-              registration:
-                google:
-                  client-id: 59440050702-u9mrh39ngj7unp0uu31si09v15cimvf0.apps.googleusercontent.com
-                  client-secret: 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
-                  authorization-grant-type: authorization_code
-                  redirect-uri: "{baseUrl}/login/oauth2/code/google"
-                  scope: profile,email,openid
-                  client-name: google
-                userInfoRequirements:
-                  hd: opsmx.io
-              provider:
-                google:
-                  authorization-uri: https://accounts.google.com/o/oauth2/auth
-                  token-uri: https://oauth2.googleapis.com/token
-                  user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-                  user-name-attribute: sub
+      config:
+        spring:
+          security:
+            oauth2:
+              enabled: true
+              login-path: /oauth2/authorization/google
+              client:
+                registration:
+                  google:
+                    client-id: 59440050702-u9mrh39ngj7unp0uu31si09v15cimvf0.apps.googleusercontent.com
+                    client-secret: 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
+                    authorization-grant-type: authorization_code
+                    redirect-uri: "{baseUrl}/login/oauth2/code/google"
+                    scope: profile,email,openid
+                    client-name: google
+                  userInfoRequirements:
+                    hd: opsmx.io
+                provider:
+                  google:
+                    authorization-uri: https://accounts.google.com/o/oauth2/auth
+                    token-uri: https://oauth2.googleapis.com/token
+                    user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+                    user-name-attribute: sub
   ## Image specific details
   image:
     repository: ubi8-gate
