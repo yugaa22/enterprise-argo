@@ -172,12 +172,12 @@ spring:
 {{ toYaml .Values.gate.config.spring.security.saml2 | indent 6 }}
 {{- end }}
 {{- if .Values.gate.config.oauth2.enabled }}
-security:
-  basic:
-    enabled: true
-  user: {}
-  oauth2:
-{{ toYaml .Values.gate.config.oauth2 | indent 4 }}
+# security:
+#   basic:
+#     enabled: true
+#   user: {}
+spring:
+{{ toYaml .Values.gate.config.oauth2.spring | indent 2 }}
 {{- end }}
 file:
   enabled: {{ .Values.gate.config.fileBasedAuthentication.enabled }}
